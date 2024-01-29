@@ -7,9 +7,39 @@
     <title>Vite + Lit + TS</title>
     <script type="module" src="/libs/ui-kit/src/main.ts"></script>
   </head>
-  <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
+  <body class="m-0">
+    <lit-main>
+      <lit-header slot="header">
+        <lit-nav slot="nav" .value="${currentPage}"></lit-nav>
+        <lit-logo
+          slot="logo"
+          image="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+        ></lit-logo>
+        <lit-page-title slot="title" title=""></lit-page-title>
+      </lit-header>
+      <div class="w-full max-w-xs" slot="body">
+        <lit-login-form></lit-login-form>
+      </div>
+    </lit-main>
+    <!-- <lit-header .nav=${JSON.stringify([{ label: 'Dashboard', link: '#' }, { label: 'Team', link: '#' }])}></lit-header> -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        let currentPage = 'Dashboard';
+        const headerEl = document.getElementsByTagName('lit-page-title')[0];
+        headerEl?.setAttribute('title', currentPage);
+
+        const navEl = document.getElementsByTagName('lit-nav')[0];
+        navEl?.addEventListener('click', (e) => {
+          currentPage = e.target.value;
+          headerEl?.setAttribute('title', currentPage);
+        });
+
+        const buttonEl = document.getElementById('submit');
+        buttonEl?.addEventListener('click', (e) => {
+          console.log('clicked');
+        });
+      });
+    </script>
   </body>
 </html>

@@ -5,7 +5,11 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "module": "ESNext",
-    "lib": ["es2015", "DOM", "DOM.Iterable"],
+    "lib": [
+      "es2015",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -17,8 +21,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "ui-kit": ["libs/ui-kit/src/main.ts"]
+      "models": [
+        "libs/models/src/index.ts"
+      ],
+      "ui-kit": [
+        "libs/ui-kit/src/main.ts"
+      ]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
